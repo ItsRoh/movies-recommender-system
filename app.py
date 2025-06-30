@@ -8,6 +8,12 @@ st.title('Movie-Recommender-System')
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
 
+import gdown
+import os
+
+if not os.path.exists('similarity.pkl'):
+    url = 'https://drive.google.com/uc?id=1djK1zKPd9QlJ89a6AFmV7ZZQ4VbbnrDW'
+    gdown.download(url, 'similarity.pkl', quiet=False)
 similarity=pickle.load(open('similarity.pkl','rb'))
 
 def fetch_poster(movie_id):
